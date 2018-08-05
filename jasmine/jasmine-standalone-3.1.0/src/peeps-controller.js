@@ -7,7 +7,7 @@
 
   var appDivBody = document.getElementById('app-body');
   appDivBody.innerHTML = 'Default text';
-  
+
   function PeepsController(){}
 
   PeepsController.prototype.allPeeps = function(){
@@ -25,9 +25,10 @@
 
   PeepsController.prototype.singlePeep = function(url){
     window.addEventListener('hashchange', function() {
-      var output = getPeepUrl(location)
+      var peepID = getPeepUrl(location)
+      var output = ""
 
-      $.get(`https://chitter-backend-api.herokuapp.com/peeps/${output}`, function(peeps) {
+      $.get(`https://chitter-backend-api.herokuapp.com/peeps/${peepID}`, function(peeps) {
         output += `<div><li>${peeps.body}, <br/>created at: ${peeps.created_at}, upadted at: ${peeps.updated_at}, user: ${peeps.user.handle}<br/><br/></li></div>`
 
         appDivTitle.innerHTML = `<h2>Single peeps</h2>`;
