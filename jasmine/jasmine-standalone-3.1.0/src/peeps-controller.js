@@ -3,16 +3,14 @@
 (function(exports){
 
   function PeepsController(){
-
   }
 
-  PeepsController.prototype.html = function(){
+  PeepsController.prototype.allPeeps = function(){
     var output = ""
     var appDivTitle = document.getElementById('app-title');
     appDivTitle.innerHTML = 'Default title';
     var appDivBody = document.getElementById('app-body');
     appDivBody.innerHTML = 'Default text';
-
 
     $.get("https://chitter-backend-api.herokuapp.com/peeps", function(response) {
       response.forEach(function(peeps) {
@@ -24,7 +22,7 @@
     });
   }
 
-  PeepsController.prototype.html();
+  PeepsController.prototype.allPeeps();
 
   exports.PeepsController = PeepsController;
 
