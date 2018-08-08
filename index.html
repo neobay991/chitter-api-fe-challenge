@@ -1,9 +1,17 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div><h2>Navigation</h2></div>
+    <p><a href="index.html">View all peep<a/></p>
+    <div id="create-user">Create a user</div>
+    <div id="app-title"></div>
+    <div id="app-body">Chiter Single Page app</div>
+    <script src="jasmine/jasmine-standalone-3.1.0/src/peeps-controller.js"></script>
 
+    <script>
       makeUrlChangeForCurrentPage();
 
       function makeUrlChangeForCurrentPage() {
@@ -18,16 +26,9 @@
         console.log(location.hash.split("/")[1])
         return location.hash.split("/")[1];
       };
-    </script>
-  </head>
-  <body>
-    <div><h2>Navigation</h2></div>
-    <p><a href="index.html">View all peep<a/></p>
-    <div id="app-title"></div>
-    <div id="app-body">Chiter Single Page app</div>
-    <script src="jasmine/jasmine-standalone-3.1.0/src/peeps-controller.js"></script>
-  <script>
       PeepsController.prototype.allPeeps();
-  </script>
+      PeepsController.prototype.createUserForm();
+    </script>
+
   </body>
 </html>
