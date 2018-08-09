@@ -53,7 +53,7 @@
   PeepsController.prototype.getFormData = function(){
     var handle = document.getElementById('handle').value;
     var password = document.getElementById('password').value;
-    
+
     PeepsController.prototype.createUser(handle, password);
   }
 
@@ -68,6 +68,40 @@
       },
       method: 'POST',
       data: {user: {handle: handle, password: password} },
+    });
+  }
+
+
+  PeepsController.prototype.createSessionForm = function(){
+    document.getElementById('create-session').addEventListener('click', function() {
+      var output = ""
+
+        output += `<div><form id="CreateSession"><input type="text" id="handle" name="handle"><input type="text" id="password" name="password"><input class="button" name="submit" type="submit" value="submit22" onclick="PeepsController.prototype.getFormData()" /></form></div>`
+
+        appDivTitle.innerHTML = `<h2>Login</h2>`;
+        appDivBody.innerHTML = $(document.body).append(output);
+        return appDivBody.innerHTML;
+    });
+  }
+
+  PeepsController.prototype.getSessionFormData = function(){
+    var handle = document.getElementById('handle').value;
+    var password = document.getElementById('password').value;
+
+    PeepsController.prototype.createSession(handle, password);
+  }
+
+  PeepsController.prototype.createSession = function(handle, password){
+    var handle;
+    var password;
+
+    $.ajax({
+      url: 'https://chitter-backend-api.herokuapp.com/sessions',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      data: {session: {handle: handle, password: password} },
     });
   }
 
