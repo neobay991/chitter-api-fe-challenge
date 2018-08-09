@@ -71,7 +71,6 @@
     });
   }
 
-
   PeepsController.prototype.createSessionForm = function(){
     document.getElementById('create-session').addEventListener('click', function() {
       var output = ""
@@ -103,6 +102,7 @@
       method: 'POST',
       data: {session: {handle: handle, password: password} },
     });
+    console.log()
   }
 
   exports.PeepsController = PeepsController;
